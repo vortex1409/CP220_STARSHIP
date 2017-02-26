@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace CP220___A1___MDORFMAN
 {
@@ -20,6 +21,10 @@ namespace CP220___A1___MDORFMAN
 
     public class starship
     {
+
+        // Variables
+        private string[] condition_type = new string[] { "Destroyed", "Damaged", "Pristine" };
+
         // Fields
         private string _ship_type;
         private int _shield_level = 100;
@@ -67,7 +72,14 @@ namespace CP220___A1___MDORFMAN
 
         public bool fire(starship target)
         {
-            return true;
+            if(ordinance > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void takehit(int dmg)
@@ -80,7 +92,23 @@ namespace CP220___A1___MDORFMAN
                 health = health - tmp;
             }
 
+            if(health <= 0)
+            {
+                condition = condition_type[0];
+            }
+            else if(health < max_health || health > 0)
+            {
+                condition = condition_type[1];
+            }
+            else if(health == max_health)
+            {
+                condition = condition_type[2];
+            }
 
+            Console.WriteLine("Ship Was Attacked");
+            Console.WriteLine("Ship Type: " + ship_type);
+            Console.WriteLine("Health: " + health + "/" + max_health);
+            Console.WriteLine("Condition: " + condition);
 
         }
 
