@@ -60,14 +60,33 @@ namespace CP220___A1___MDORFMAN
         }
 
         // Constuctor
-        public starship(string ShipName, int MaxHealth)
+        public starship(string ShipType, int MaxHealth)
         {
-            
+            firing_damage = 14;
         }
 
-        public void fire(starship)
+        public bool fire(starship target)
         {
+            return true;
+        }
 
+        public void takehit(int dmg)
+        {
+            shield_level = shield_level - dmg;
+
+            if(shield_level < 0)
+            {
+                int tmp = 0 + shield_level;
+                health = health - tmp;
+            }
+
+
+
+        }
+
+        public void load()
+        {
+            ordinance = ordinance + 2;
         }
 
     }
