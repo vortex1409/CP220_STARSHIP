@@ -60,7 +60,12 @@ namespace CP220___A1___MDORFMAN
         }
 
         // Constuctor
-        public starship
+        public starship(string ShipName, int MaxHealth)
+        {
+            
+        }
+
+        public void fire(starship)
         {
 
         }
