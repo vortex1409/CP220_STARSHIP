@@ -22,7 +22,7 @@ namespace CP220___A1___MDORFMAN
     public class starship
     {
 
-        // Variables
+        // Variables & Arrays
         private string[] condition_type = new string[] { "Destroyed", "Damaged", "Pristine" };
 
         // Fields
@@ -39,25 +39,21 @@ namespace CP220___A1___MDORFMAN
             get { return _ship_type; }
             set { _ship_type = value; }
         }
-
         public int shield_level
         {
             get { return _shield_level; }
             set { _shield_level = value; }
         }
-
         public int health
         {
             get { return _health; }
             set { _health = value; }
         }
-
         public int max_health
         {
             get { return _max_health; }
             set { _max_health = value; }
         }
-
         public string condition
         {
             get { return _condition; }
@@ -67,19 +63,30 @@ namespace CP220___A1___MDORFMAN
         // Constuctor
         public starship(string ShipType, int MaxHealth)
         {
-            firing_damage = 14;
+            firing_damage = 1;
         }
 
+        // Methods
         public bool fire(starship target)
         {
-            if(ordinance > 0)
+            if(condition != condition_type[0])
             {
-                return true;
+                if (ordinance > 0)
+                {
+                    ordinance = ordinance - 1;
+                    takehit(firing_damage);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
                 return false;
             }
+            
         }
 
         public void takehit(int dmg)
@@ -121,12 +128,20 @@ namespace CP220___A1___MDORFMAN
 
     public class cruiser : starship
     {
+        public cruiser(string ShipType, int MaxHealth) 
+            : base(ShipType, MaxHealth)
+        {
 
+        }
     }
 
     public class destroyer : starship
     {
+        public destroyer(string ShipType, int MaxHealth) 
+            : base(ShipType, MaxHealth)
+        {
 
+        }
     }
 
     public class ordinance
