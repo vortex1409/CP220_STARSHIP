@@ -151,7 +151,7 @@ namespace CP220___A1___MDORFMAN
 
     public class torpedo : ordinance
     {
-
+        
     }
 
     public class ion_bomb: ordinance
