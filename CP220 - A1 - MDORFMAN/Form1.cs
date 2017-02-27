@@ -95,7 +95,7 @@ namespace CP220___A1___MDORFMAN
 
             if(shield_level < 0)
             {
-                int tmp = 0 + shield_level;
+                int tmp = 0 + Math.Abs(shield_level);
                 health = health - tmp;
             }
 
