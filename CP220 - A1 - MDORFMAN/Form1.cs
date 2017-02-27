@@ -144,9 +144,13 @@ namespace CP220___A1___MDORFMAN
         }
     }
 
-    public class ordinance
+    public class ordinance :starship
     {
+        public ordinance(string ShipType)
+            : base(ShipType)
+        {
 
+        }
     }
 
     public class torpedo : ordinance
