@@ -9,6 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 
+/*
+    Project: Assignment 1
+    Description: Space War
+    Name: Michael Dorfman
+    Class: CP220 - OOP 2
+    Date: 02/28/2017 - 2:48 PM (EST)
+*/
+
 namespace CP220___A1___MDORFMAN
 {
     public partial class Form1 : Form
