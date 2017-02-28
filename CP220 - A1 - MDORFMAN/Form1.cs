@@ -27,9 +27,6 @@ namespace CP220___A1___MDORFMAN
             p2HealthBar.Value = P2.max_health;
             p1ShieldBar.Value = P1.shield_level;
             p2ShieldBar.Value = P2.shield_level;
-
-            Console.WriteLine(P1.max_health);
-
         }
 
         private void btnLaser1_Click(object sender, EventArgs e)
