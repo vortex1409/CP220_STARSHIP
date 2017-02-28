@@ -23,12 +23,14 @@ namespace CP220___A1___MDORFMAN
         public Form1()
         {
             InitializeComponent();
-            GenericIonBomb.DamageOutput()
+            p1HealthBar.Value = 100;
+            p2HealthBar.Value = 50;
         }
 
         private void btnLaser1_Click(object sender, EventArgs e)
         {
-
+            P2.takehit(GenericLaser.DamageOutput(P1.firing_damage));
+            p2HealthBar.Value = p2HealthBar.Value - P1.firing_damage;
         }
 
         private void btnTorp1_Click(object sender, EventArgs e)
@@ -176,6 +178,10 @@ namespace CP220___A1___MDORFMAN
 
     public class cruiser : starship
     {
+        // Fields
+        public int firing_damage = 5;
+
+        // Constructor
         public cruiser(string ShipType, int MaxHealth) 
             : base(ShipType, MaxHealth)
         {
@@ -185,12 +191,16 @@ namespace CP220___A1___MDORFMAN
 
     public class destroyer : starship
     {
+        // Fields
+        public int firing_damage = 10;
+
+        // Constructor
         public destroyer(string ShipType, int MaxHealth) 
             : base(ShipType, MaxHealth)
         {
 
         }
-    }
+    }   
 
     public interface ordinance
     {
