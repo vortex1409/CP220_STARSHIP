@@ -13,7 +13,6 @@ namespace CP220___A1___MDORFMAN
 {
     public partial class Form1 : Form
     {
-
         cruiser P1 = new cruiser("RN Kirov", 100, "Pristine");
         destroyer P2 = new destroyer("USS Sampson", 50, "Pristine");
         torpedo GenericTorpedo = new torpedo();
@@ -44,10 +43,45 @@ namespace CP220___A1___MDORFMAN
 
         private void UpdateStats()
         {
-            p1HealthBar.Value = P1.health;
-            p2HealthBar.Value = P2.health;
-            p1ShieldBar.Value = P1.shield_level;
-            p2ShieldBar.Value = P2.shield_level;
+            
+            
+
+            if(P1.health <= 0)
+            {
+                p1HealthBar.Value = 0;
+            }
+            else
+            {
+                p1HealthBar.Value = P1.health;
+            }
+
+            if (P2.health <= 0)
+            {
+                p2HealthBar.Value = 0;
+            }
+            else
+            {
+                p2HealthBar.Value = P2.health;
+            }
+
+            if (P1.shield_level <= 0)
+            {
+                p1ShieldBar.Value = 0;
+            }
+            else
+            {
+                p1ShieldBar.Value = P1.shield_level;
+            }
+
+            if (P2.shield_level <= 0)
+            {
+                p2ShieldBar.Value = 0;
+            }
+            else
+            {
+                p2ShieldBar.Value = P2.shield_level;
+            }
+
         }
 
         private void btnLaser1_Click(object sender, EventArgs e)
@@ -100,7 +134,6 @@ namespace CP220___A1___MDORFMAN
 
     public class starship
     {
-
         // Variables & Arrays
         private string[] condition_type = new string[] { "Destroyed", "Damaged", "Pristine" };
 
@@ -165,6 +198,7 @@ namespace CP220___A1___MDORFMAN
             }
             else
             {
+                MessageBox.Show("SHIP IS DESTROYED CANNOT FIRE");
                 return false;
             }
             
@@ -200,21 +234,18 @@ namespace CP220___A1___MDORFMAN
                 target.condition = condition_type[2];
             }
 
-            Form1 ctrl = new Form1();
+            Console.WriteLine("Ship Was Attacked");
+            Console.WriteLine("Ship Type: " + target.ship_type);
+            Console.WriteLine("Shields: " + target.shield_level + "/100");
+            Console.WriteLine("Health: " + target.health + "/" + target.max_health);
+            Console.WriteLine("Condition: " + target.condition);
 
-            ctrl.WarLog.Items.Clear();
-            ctrl.WarLog.Items.Add("Ship Was Attacked");
-            ctrl.WarLog.Items.Add("Ship Type: " + target.ship_type);
-            ctrl.WarLog.Items.Add("Shields: " + target.shield_level + "/100");
-            ctrl.WarLog.Items.Add("Health: " + target.health + "/" + target.max_health);
-            ctrl.WarLog.Items.Add("Condition: " + target.condition);
         }
 
         public void load()
         {
             ordinance = ordinance + 2;
         }
-
     }
 
     public class cruiser : starship
