@@ -14,26 +14,46 @@ namespace CP220___A1___MDORFMAN
     public partial class Form1 : Form
     {
 
-        cruiser P1 = new cruiser("RN Kirov", 100);
-        destroyer P2 = new destroyer("USS Sampson", 50);
+        cruiser P1 = new cruiser("RN Kirov", 100, "Pristine");
+        destroyer P2 = new destroyer("USS Sampson", 50, "Pristine");
         torpedo GenericTorpedo = new torpedo();
         laser GenericLaser = new laser();
         ion_bomb GenericIonBomb = new ion_bomb();
-
+        
         public Form1()
         {
             InitializeComponent();
-            p1HealthBar.Value = P1.max_health;
-            p2HealthBar.Value = P2.max_health;
+            UpdateStats();
+            CheckVars();
+        }
+
+        public void CheckVars()
+        {
+            Console.WriteLine("P1 Health = " + P1.health);
+            Console.WriteLine("P1 Max Health = " + P1.max_health);
+            Console.WriteLine("P1 Shield = " + P1.shield_level);
+            Console.WriteLine("P1 Type = " + P1.ship_type);
+            Console.WriteLine("P1 Condition = " + P1.condition);
+
+            Console.WriteLine("P2 Health = " + P2.health);
+            Console.WriteLine("P2 Max Health = " + P2.max_health);
+            Console.WriteLine("P2 Shield = " + P2.shield_level);
+            Console.WriteLine("P2 Type = " + P2.ship_type);
+            Console.WriteLine("P2 Condition = " + P2.condition);
+        }
+
+        private void UpdateStats()
+        {
+            p1HealthBar.Value = P1.health;
+            p2HealthBar.Value = P2.health;
             p1ShieldBar.Value = P1.shield_level;
             p2ShieldBar.Value = P2.shield_level;
         }
 
         private void btnLaser1_Click(object sender, EventArgs e)
         {
-            P2.takehit(GenericLaser.DamageOutput(P1.firing_damage));
-            p2HealthBar.Value = p2HealthBar.Value - GenericLaser.DamageOutput(P1.firing_damage);
-            WarLog.Items.Add("Damage Outputed: " + Convert.ToString(GenericLaser.DamageOutput(P1.firing_damage)));
+            P1.fire(P2, GenericLaser.DamageOutput(P1.firing_damage));
+            UpdateStats();
         }
 
         private void btnTorp1_Click(object sender, EventArgs e)
@@ -48,12 +68,13 @@ namespace CP220___A1___MDORFMAN
 
         private void btnReload1_Click(object sender, EventArgs e)
         {
-
+            P1.load();
         }
 
         private void btnLaser2_Click(object sender, EventArgs e)
         {
-
+            P2.fire(P1, GenericLaser.DamageOutput(P2.firing_damage));
+            UpdateStats();
         }
 
         private void btnTorp2_Click(object sender, EventArgs e)
@@ -69,6 +90,11 @@ namespace CP220___A1___MDORFMAN
         private void btnReload2_Click(object sender, EventArgs e)
         {
             P2.load();
+        }
+
+        private void btnCheckVar_Click(object sender, EventArgs e)
+        {
+            CheckVars();
         }
     }
 
@@ -114,25 +140,26 @@ namespace CP220___A1___MDORFMAN
         }
 
         // Constuctor
-        public starship(string ShipType, int MaxHealth)
+        public starship(string ShipType, int MaxHealth, string Condition)
         {
             firing_damage = 1;
             shield_level = 100;
         }
 
         // Methods
-        public bool fire(starship target)
+        public bool fire(starship target, int dmg)
         {
             if(condition != condition_type[0])
             {
                 if (ordinance > 0)
                 {
                     ordinance = ordinance - 1;
-                    takehit(firing_damage);
+                    takehit(target, dmg);
                     return true;
                 }
                 else
                 {
+                    MessageBox.Show("LOAD THE GUN IDIOT");
                     return false;
                 }
             }
@@ -143,33 +170,41 @@ namespace CP220___A1___MDORFMAN
             
         }
 
-        public void takehit(int dmg)
+        public void takehit(starship target, int dmg)
         {
-            shield_level = shield_level - dmg;
+            if(target.shield_level > 0)
+            {
+                target.shield_level = target.shield_level - dmg;
 
-            if(shield_level < 0)
+                //if (target.shield_level < 0)
+                //{
+                //    int tmp = Math.Abs(shield_level);
+                //    target.health = target.health - tmp;
+                //}
+            }
+            else if (target.shield_level <= 0)
             {
-                int tmp = 0 + Math.Abs(shield_level);
-                health = health - tmp;
+                target.health = target.health - dmg;
             }
 
-            if(health <= 0)
+            if(target.health <= 0)
             {
-                condition = condition_type[0];
+                target.condition = condition_type[0];
             }
-            else if(health < max_health || health > 0)
+            else if(target.health < target.max_health || target.health > 0)
             {
-                condition = condition_type[1];
+                target.condition = condition_type[1];
             }
-            else if(health == max_health)
+            else if(target.health == max_health)
             {
-                condition = condition_type[2];
+                target.condition = condition_type[2];
             }
 
             Console.WriteLine("Ship Was Attacked");
-            Console.WriteLine("Ship Type: " + ship_type);
-            Console.WriteLine("Health: " + health + "/" + max_health);
-            Console.WriteLine("Condition: " + condition);
+            Console.WriteLine("Ship Type: " + target.ship_type);
+            Console.WriteLine("Shields: " + target.shield_level + "/100");
+            Console.WriteLine("Health: " + target.health + "/" + target.max_health);
+            Console.WriteLine("Condition: " + target.condition);
 
         }
 
@@ -186,10 +221,13 @@ namespace CP220___A1___MDORFMAN
         public int firing_damage = 5;
 
         // Constructor
-        public cruiser(string ShipType, int MaxHealth) 
-            : base(ShipType, MaxHealth)
+        public cruiser(string ShipType, int MaxHealth, string Condition) 
+            : base(ShipType, MaxHealth, Condition)
         {
+            this.ship_type = ShipType;
             this.max_health = MaxHealth;
+            this.health = MaxHealth;
+            this.condition = Condition;
         }
     }
 
@@ -199,10 +237,13 @@ namespace CP220___A1___MDORFMAN
         public int firing_damage = 10;
 
         // Constructor
-        public destroyer(string ShipType, int MaxHealth) 
-            : base(ShipType, MaxHealth)
+        public destroyer(string ShipType, int MaxHealth, string Condition) 
+            : base(ShipType, MaxHealth, Condition)
         {
+            this.ship_type = ShipType;
             this.max_health = MaxHealth;
+            this.health = MaxHealth;
+            this.condition = Condition;
         }
     }   
 
