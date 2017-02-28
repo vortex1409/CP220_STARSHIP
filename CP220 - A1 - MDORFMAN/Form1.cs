@@ -200,6 +200,8 @@ namespace CP220___A1___MDORFMAN
                 target.condition = condition_type[2];
             }
 
+            
+
             Console.WriteLine("Ship Was Attacked");
             Console.WriteLine("Ship Type: " + target.ship_type);
             Console.WriteLine("Shields: " + target.shield_level + "/100");

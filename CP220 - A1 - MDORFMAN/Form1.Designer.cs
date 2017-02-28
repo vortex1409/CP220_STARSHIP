@@ -296,12 +296,12 @@
         private System.Windows.Forms.Button btnTorp2;
         private System.Windows.Forms.Button btnIon2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox WarLog;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ProgressBar p1ShieldBar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ProgressBar p2ShieldBar;
         private System.Windows.Forms.Button btnCheckVar;
+        public System.Windows.Forms.ListBox WarLog;
     }
 }
 
