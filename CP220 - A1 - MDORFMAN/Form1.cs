@@ -18,7 +18,9 @@ namespace CP220___A1___MDORFMAN
         torpedo GenericTorpedo = new torpedo();
         laser GenericLaser = new laser();
         ion_bomb GenericIonBomb = new ion_bomb();
-        
+
+        private string[] weapon_type = new string[] { "Laser", "Torpedo", "Ion Bomb" };
+
         public Form1()
         {
             InitializeComponent();
@@ -41,6 +43,28 @@ namespace CP220___A1___MDORFMAN
             Console.WriteLine("P2 Type = " + P2.ship_type);
             Console.WriteLine("P2 Condition = " + P2.condition);
             Console.WriteLine("P2 Ammo = " + Convert.ToString(P2.ammo_count()));
+        }
+
+        public void WarLogUpdater(string attacker, string target, string weapon, int damage)
+        {   
+            if(P1.ammo_count() != 0 || P2.ammo_count() != 0)
+            {
+                WarLog.Items.Add("=== | NEW EVENT | ===");
+                WarLog.Items.Add(attacker + " attacked " + target);
+                WarLog.Items.Add("Weapon Used: " + weapon);
+                WarLog.Items.Add("Damage Delt: " + damage);
+                WarLog.Items.Add("=== === === === === ===");
+            }
+            else
+            {
+                MessageBox.Show("Attack was not carried out");
+            }
+            
+        }
+
+        public void ClearLog()
+        {
+            WarLog.Items.Clear();
         }
 
         private void UpdateStats()
@@ -87,16 +111,21 @@ namespace CP220___A1___MDORFMAN
         {
             P1.fire(P2, GenericLaser.DamageOutput(P1.firing_damage));
             UpdateStats();
+            WarLogUpdater(P1.ship_type, P2.ship_type, weapon_type[0], GenericLaser.DamageOutput(P1.firing_damage));
         }
 
         private void btnTorp1_Click(object sender, EventArgs e)
         {
-
+            P1.fire(P2, GenericTorpedo.DamageOutput(P1.firing_damage));
+            UpdateStats();
+            WarLogUpdater(P1.ship_type, P2.ship_type, weapon_type[1], GenericTorpedo.DamageOutput(P1.firing_damage));
         }
 
         private void btnIon1_Click(object sender, EventArgs e)
         {
-
+            P1.fire(P2, GenericIonBomb.DamageOutput(P1.firing_damage));
+            UpdateStats();
+            WarLogUpdater(P1.ship_type, P2.ship_type, weapon_type[2], GenericIonBomb.DamageOutput(P1.firing_damage));
         }
 
         private void btnReload1_Click(object sender, EventArgs e)
@@ -108,16 +137,21 @@ namespace CP220___A1___MDORFMAN
         {
             P2.fire(P1, GenericLaser.DamageOutput(P2.firing_damage));
             UpdateStats();
+            WarLogUpdater(P2.ship_type, P1.ship_type, weapon_type[0], GenericLaser.DamageOutput(P2.firing_damage));
         }
 
         private void btnTorp2_Click(object sender, EventArgs e)
         {
-            
+            P2.fire(P1, GenericTorpedo.DamageOutput(P2.firing_damage));
+            UpdateStats();
+            WarLogUpdater(P2.ship_type, P1.ship_type, weapon_type[1], GenericTorpedo.DamageOutput(P2.firing_damage));
         }
 
         private void btnIon2_Click(object sender, EventArgs e)
         {
-
+            P2.fire(P1, GenericLaser.DamageOutput(P2.firing_damage));
+            UpdateStats();
+            WarLogUpdater(P2.ship_type, P1.ship_type, weapon_type[2], GenericIonBomb.DamageOutput(P2.firing_damage));
         }
 
         private void btnReload2_Click(object sender, EventArgs e)
