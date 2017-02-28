@@ -44,6 +44,10 @@
             this.btnIon2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.WarLog = new System.Windows.Forms.ListBox();
+            this.p1ShieldBar = new System.Windows.Forms.ProgressBar();
+            this.p2ShieldBar = new System.Windows.Forms.ProgressBar();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -80,7 +84,7 @@
             // 
             // p1HealthBar
             // 
-            this.p1HealthBar.Location = new System.Drawing.Point(122, 77);
+            this.p1HealthBar.Location = new System.Drawing.Point(122, 106);
             this.p1HealthBar.Name = "p1HealthBar";
             this.p1HealthBar.Size = new System.Drawing.Size(150, 23);
             this.p1HealthBar.TabIndex = 5;
@@ -88,7 +92,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(176, 53);
+            this.label3.Location = new System.Drawing.Point(176, 82);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 6;
@@ -96,6 +100,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.p1ShieldBar);
             this.groupBox2.Controls.Add(this.btnReload1);
             this.groupBox2.Controls.Add(this.p1HealthBar);
             this.groupBox2.Controls.Add(this.label3);
@@ -121,6 +127,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.p2ShieldBar);
             this.groupBox1.Controls.Add(this.btnReload2);
             this.groupBox1.Controls.Add(this.p2HealthBar);
             this.groupBox1.Controls.Add(this.label1);
@@ -146,7 +154,7 @@
             // 
             // p2HealthBar
             // 
-            this.p2HealthBar.Location = new System.Drawing.Point(122, 77);
+            this.p2HealthBar.Location = new System.Drawing.Point(122, 106);
             this.p2HealthBar.Name = "p2HealthBar";
             this.p2HealthBar.Size = new System.Drawing.Size(150, 23);
             this.p2HealthBar.TabIndex = 5;
@@ -154,7 +162,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(176, 53);
+            this.label1.Location = new System.Drawing.Point(176, 82);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 6;
@@ -207,6 +215,38 @@
             this.WarLog.Size = new System.Drawing.Size(407, 264);
             this.WarLog.TabIndex = 10;
             // 
+            // p1ShieldBar
+            // 
+            this.p1ShieldBar.Location = new System.Drawing.Point(122, 48);
+            this.p1ShieldBar.Name = "p1ShieldBar";
+            this.p1ShieldBar.Size = new System.Drawing.Size(150, 23);
+            this.p1ShieldBar.TabIndex = 7;
+            // 
+            // p2ShieldBar
+            // 
+            this.p2ShieldBar.Location = new System.Drawing.Point(122, 48);
+            this.p2ShieldBar.Name = "p2ShieldBar";
+            this.p2ShieldBar.Size = new System.Drawing.Size(150, 23);
+            this.p2ShieldBar.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(176, 24);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Shields";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(176, 24);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Shields";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -245,6 +285,10 @@
         private System.Windows.Forms.Button btnIon2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox WarLog;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ProgressBar p1ShieldBar;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ProgressBar p2ShieldBar;
     }
 }
 
