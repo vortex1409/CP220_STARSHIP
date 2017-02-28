@@ -15,12 +15,15 @@ namespace CP220___A1___MDORFMAN
     {
 
         cruiser P1 = new cruiser("RN Kirov", 100);
-        destroyer P2 = new destroyer("USS Sampson", 100);
-
+        destroyer P2 = new destroyer("USS Sampson", 50);
+        torpedo GenericTorpedo = new torpedo();
+        laser GenericLaser = new laser();
+        ion_bomb GenericIonBomb = new ion_bomb();
 
         public Form1()
         {
             InitializeComponent();
+            GenericIonBomb.DamageOutput()
         }
 
         private void btnLaser1_Click(object sender, EventArgs e)
@@ -50,7 +53,7 @@ namespace CP220___A1___MDORFMAN
 
         private void btnTorp2_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnIon2_Click(object sender, EventArgs e)
@@ -178,8 +181,6 @@ namespace CP220___A1___MDORFMAN
         {
 
         }
-
-        public override
     }
 
     public class destroyer : starship
@@ -191,23 +192,38 @@ namespace CP220___A1___MDORFMAN
         }
     }
 
-    public class ordinance
+    public interface ordinance
     {
-
+        int DamageOutput(int Base);
     }
 
     public class torpedo : ordinance
     {
-        
+        // Torpedo does Base Damage + 10
+        public int DamageOutput(int Base)
+        {
+            int output;
+            return output = Base + 10;
+        }
     }
 
     public class ion_bomb: ordinance
     {
-
+        // Ion Bomb does Base Damage + 50
+        public int DamageOutput(int Base)
+        {
+            int output;
+            return output = Base + 50;
+        }
     }
 
     public class laser : ordinance
     {
-
+        // Laser does Base Damage + 5
+        public int DamageOutput(int Base)
+        {
+            int output;
+            return output = Base + 5;
+        }
     }
 }
