@@ -200,14 +200,14 @@ namespace CP220___A1___MDORFMAN
                 target.condition = condition_type[2];
             }
 
-            
+            Form1 ctrl = new Form1();
 
-            Console.WriteLine("Ship Was Attacked");
-            Console.WriteLine("Ship Type: " + target.ship_type);
-            Console.WriteLine("Shields: " + target.shield_level + "/100");
-            Console.WriteLine("Health: " + target.health + "/" + target.max_health);
-            Console.WriteLine("Condition: " + target.condition);
-
+            ctrl.WarLog.Items.Clear();
+            ctrl.WarLog.Items.Add("Ship Was Attacked");
+            ctrl.WarLog.Items.Add("Ship Type: " + target.ship_type);
+            ctrl.WarLog.Items.Add("Shields: " + target.shield_level + "/100");
+            ctrl.WarLog.Items.Add("Health: " + target.health + "/" + target.max_health);
+            ctrl.WarLog.Items.Add("Condition: " + target.condition);
         }
 
         public void load()
