@@ -21,8 +21,8 @@ namespace CP220___A1___MDORFMAN
 {
     public partial class Form1 : Form
     {
-        cruiser P1 = new cruiser("RN Kirov", 100, "Pristine");
-        destroyer P2 = new destroyer("USS Sampson", 50, "Pristine");
+        cruiser P1 = new cruiser("RN Kirov", 100);
+        destroyer P2 = new destroyer("USS Sampson", 50);
         torpedo GenericTorpedo = new torpedo();
         laser GenericLaser = new laser();
         ion_bomb GenericIonBomb = new ion_bomb();
@@ -35,24 +35,25 @@ namespace CP220___A1___MDORFMAN
             UpdateStats();
             CheckVars();
         }
-
         public void CheckVars()
         {
+            Console.WriteLine("P1 Name: " + P1.name);
+            Console.WriteLine("P1 Type = " + P1.ship_type);
             Console.WriteLine("P1 Health = " + P1.health);
             Console.WriteLine("P1 Max Health = " + P1.max_health);
             Console.WriteLine("P1 Shield = " + P1.shield_level);
-            Console.WriteLine("P1 Type = " + P1.ship_type);
             Console.WriteLine("P1 Condition = " + P1.condition);
             Console.WriteLine("P1 Ammo = " + Convert.ToString(P1.ammo_count()));
 
+            Console.WriteLine("P1 Name: " + P2.name);
+            Console.WriteLine("P2 Type = " + P2.ship_type);
             Console.WriteLine("P2 Health = " + P2.health);
             Console.WriteLine("P2 Max Health = " + P2.max_health);
             Console.WriteLine("P2 Shield = " + P2.shield_level);
-            Console.WriteLine("P2 Type = " + P2.ship_type);
+            
             Console.WriteLine("P2 Condition = " + P2.condition);
             Console.WriteLine("P2 Ammo = " + Convert.ToString(P2.ammo_count()));
         }
-
         public void WarLogUpdater(string attacker, string target, string weapon, int damage)
         {   
             if(P1.ammo_count() != 0 || P2.ammo_count() != 0)
@@ -69,12 +70,10 @@ namespace CP220___A1___MDORFMAN
             }
             
         }
-
         public void ClearLog()
         {
             WarLog.Items.Clear();
         }
-
         private void UpdateStats()
         {
             if(P1.health <= 0)
@@ -114,59 +113,50 @@ namespace CP220___A1___MDORFMAN
             }
 
         }
-
         private void btnLaser1_Click(object sender, EventArgs e)
         {
             P1.fire(P2, GenericLaser.DamageOutput(P1.firing_damage));
             UpdateStats();
             WarLogUpdater(P1.ship_type, P2.ship_type, weapon_type[0], GenericLaser.DamageOutput(P1.firing_damage));
         }
-
         private void btnTorp1_Click(object sender, EventArgs e)
         {
             P1.fire(P2, GenericTorpedo.DamageOutput(P1.firing_damage));
             UpdateStats();
             WarLogUpdater(P1.ship_type, P2.ship_type, weapon_type[1], GenericTorpedo.DamageOutput(P1.firing_damage));
         }
-
         private void btnIon1_Click(object sender, EventArgs e)
         {
             P1.fire(P2, GenericIonBomb.DamageOutput(P1.firing_damage));
             UpdateStats();
             WarLogUpdater(P1.ship_type, P2.ship_type, weapon_type[2], GenericIonBomb.DamageOutput(P1.firing_damage));
         }
-
         private void btnReload1_Click(object sender, EventArgs e)
         {
             P1.load();
         }
-
         private void btnLaser2_Click(object sender, EventArgs e)
         {
             P2.fire(P1, GenericLaser.DamageOutput(P2.firing_damage));
             UpdateStats();
             WarLogUpdater(P2.ship_type, P1.ship_type, weapon_type[0], GenericLaser.DamageOutput(P2.firing_damage));
         }
-
         private void btnTorp2_Click(object sender, EventArgs e)
         {
             P2.fire(P1, GenericTorpedo.DamageOutput(P2.firing_damage));
             UpdateStats();
             WarLogUpdater(P2.ship_type, P1.ship_type, weapon_type[1], GenericTorpedo.DamageOutput(P2.firing_damage));
         }
-
         private void btnIon2_Click(object sender, EventArgs e)
         {
             P2.fire(P1, GenericLaser.DamageOutput(P2.firing_damage));
             UpdateStats();
             WarLogUpdater(P2.ship_type, P1.ship_type, weapon_type[2], GenericIonBomb.DamageOutput(P2.firing_damage));
         }
-
         private void btnReload2_Click(object sender, EventArgs e)
         {
             P2.load();
         }
-
         private void btnCheckVar_Click(object sender, EventArgs e)
         {
             CheckVars();
@@ -185,6 +175,7 @@ namespace CP220___A1___MDORFMAN
         private string _condition;
         private int ordinance;
         private int firing_damage;
+        private string _name;
 
         // Properties
         public string ship_type
@@ -212,12 +203,18 @@ namespace CP220___A1___MDORFMAN
             get { return _condition; }
             set { _condition = value; }
         }
+        public string name 
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
 
         // Constuctor
-        public starship(string ShipType, int MaxHealth, string Condition)
+        public starship(string ShipName, int MaxHealth)
         {
             firing_damage = 1;
             shield_level = 100;
+            name = ShipName;
         }
 
         // Methods
@@ -300,13 +297,13 @@ namespace CP220___A1___MDORFMAN
         public int firing_damage = 5;
 
         // Constructor
-        public cruiser(string ShipType, int MaxHealth, string Condition) 
-            : base(ShipType, MaxHealth, Condition)
+        public cruiser(string ShipName, int MaxHealth) 
+            : base(ShipName, MaxHealth)
         {
-            this.ship_type = ShipType;
+            this.ship_type = "Cruiser";
             this.max_health = MaxHealth;
             this.health = MaxHealth;
-            this.condition = Condition;
+            this.condition = "Pristine";
         }
     }
 
@@ -316,13 +313,13 @@ namespace CP220___A1___MDORFMAN
         public int firing_damage = 10;
 
         // Constructor
-        public destroyer(string ShipType, int MaxHealth, string Condition) 
-            : base(ShipType, MaxHealth, Condition)
+        public destroyer(string ShipName, int MaxHealth) 
+            : base(ShipName, MaxHealth)
         {
-            this.ship_type = ShipType;
+            this.ship_type = "Destroyer";
             this.max_health = MaxHealth;
             this.health = MaxHealth;
-            this.condition = Condition;
+            this.condition = "Pristine";
         }
     }   
 
