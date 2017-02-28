@@ -117,19 +117,19 @@ namespace CP220___A1___MDORFMAN
         {
             P1.fire(P2, GenericLaser.DamageOutput(P1.firing_damage));
             UpdateStats();
-            WarLogUpdater(P1.ship_type, P2.ship_type, weapon_type[0], GenericLaser.DamageOutput(P1.firing_damage));
+            WarLogUpdater(P1.name, P2.name, weapon_type[0], GenericLaser.DamageOutput(P1.firing_damage));
         }
         private void btnTorp1_Click(object sender, EventArgs e)
         {
             P1.fire(P2, GenericTorpedo.DamageOutput(P1.firing_damage));
             UpdateStats();
-            WarLogUpdater(P1.ship_type, P2.ship_type, weapon_type[1], GenericTorpedo.DamageOutput(P1.firing_damage));
+            WarLogUpdater(P1.name, P2.name, weapon_type[1], GenericTorpedo.DamageOutput(P1.firing_damage));
         }
         private void btnIon1_Click(object sender, EventArgs e)
         {
             P1.fire(P2, GenericIonBomb.DamageOutput(P1.firing_damage));
             UpdateStats();
-            WarLogUpdater(P1.ship_type, P2.ship_type, weapon_type[2], GenericIonBomb.DamageOutput(P1.firing_damage));
+            WarLogUpdater(P1.name, P2.name, weapon_type[2], GenericIonBomb.DamageOutput(P1.firing_damage));
         }
         private void btnReload1_Click(object sender, EventArgs e)
         {
@@ -139,19 +139,19 @@ namespace CP220___A1___MDORFMAN
         {
             P2.fire(P1, GenericLaser.DamageOutput(P2.firing_damage));
             UpdateStats();
-            WarLogUpdater(P2.ship_type, P1.ship_type, weapon_type[0], GenericLaser.DamageOutput(P2.firing_damage));
+            WarLogUpdater(P2.name, P1.name, weapon_type[0], GenericLaser.DamageOutput(P2.firing_damage));
         }
         private void btnTorp2_Click(object sender, EventArgs e)
         {
             P2.fire(P1, GenericTorpedo.DamageOutput(P2.firing_damage));
             UpdateStats();
-            WarLogUpdater(P2.ship_type, P1.ship_type, weapon_type[1], GenericTorpedo.DamageOutput(P2.firing_damage));
+            WarLogUpdater(P2.name, P1.name, weapon_type[1], GenericTorpedo.DamageOutput(P2.firing_damage));
         }
         private void btnIon2_Click(object sender, EventArgs e)
         {
             P2.fire(P1, GenericLaser.DamageOutput(P2.firing_damage));
             UpdateStats();
-            WarLogUpdater(P2.ship_type, P1.ship_type, weapon_type[2], GenericIonBomb.DamageOutput(P2.firing_damage));
+            WarLogUpdater(P2.name, P1.name, weapon_type[2], GenericIonBomb.DamageOutput(P2.firing_damage));
         }
         private void btnReload2_Click(object sender, EventArgs e)
         {
@@ -241,7 +241,6 @@ namespace CP220___A1___MDORFMAN
             }
             
         }
-
         public void takehit(starship target, int dmg)
         {
             if(target.shield_level > 0)
@@ -279,12 +278,10 @@ namespace CP220___A1___MDORFMAN
             Console.WriteLine("Condition: " + target.condition);
 
         }
-
         public void load()
         {
             ordinance = ordinance + 2;
         }
-
         public int ammo_count()
         {
             return ordinance;
