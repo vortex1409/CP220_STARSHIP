@@ -13,6 +13,10 @@ namespace CP220___A1___MDORFMAN
 {
     public partial class Form1 : Form
     {
+
+        cruiser P1 = new cruiser("RN Kirov", 100);
+        destroyer P2 = new destroyer("USS Sampson", 100);
+
         public Form1()
         {
             InitializeComponent();
