@@ -33,19 +33,18 @@ namespace CP220___A1___MDORFMAN
             Console.WriteLine("P1 Shield = " + P1.shield_level);
             Console.WriteLine("P1 Type = " + P1.ship_type);
             Console.WriteLine("P1 Condition = " + P1.condition);
+            Console.WriteLine("P1 Ammo = " + Convert.ToString(P1.ammo_count()));
 
             Console.WriteLine("P2 Health = " + P2.health);
             Console.WriteLine("P2 Max Health = " + P2.max_health);
             Console.WriteLine("P2 Shield = " + P2.shield_level);
             Console.WriteLine("P2 Type = " + P2.ship_type);
             Console.WriteLine("P2 Condition = " + P2.condition);
+            Console.WriteLine("P2 Ammo = " + Convert.ToString(P2.ammo_count()));
         }
 
         private void UpdateStats()
         {
-            
-            
-
             if(P1.health <= 0)
             {
                 p1HealthBar.Value = 0;
@@ -245,6 +244,11 @@ namespace CP220___A1___MDORFMAN
         public void load()
         {
             ordinance = ordinance + 2;
+        }
+
+        public int ammo_count()
+        {
+            return ordinance;
         }
     }
 
