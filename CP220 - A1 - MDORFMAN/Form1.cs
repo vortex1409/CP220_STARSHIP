@@ -23,14 +23,20 @@ namespace CP220___A1___MDORFMAN
         public Form1()
         {
             InitializeComponent();
-            p1HealthBar.Value = 100;
-            p2HealthBar.Value = 50;
+            p1HealthBar.Value = P1.max_health;
+            p2HealthBar.Value = P2.max_health;
+            p1ShieldBar.Value = P1.shield_level;
+            p2ShieldBar.Value = P2.shield_level;
+
+            Console.WriteLine(P1.max_health);
+
         }
 
         private void btnLaser1_Click(object sender, EventArgs e)
         {
             P2.takehit(GenericLaser.DamageOutput(P1.firing_damage));
-            p2HealthBar.Value = p2HealthBar.Value - P1.firing_damage;
+            p2HealthBar.Value = p2HealthBar.Value - GenericLaser.DamageOutput(P1.firing_damage);
+            WarLog.Items.Add("Damage Outputed: " + Convert.ToString(GenericLaser.DamageOutput(P1.firing_damage)));
         }
 
         private void btnTorp1_Click(object sender, EventArgs e)
@@ -65,7 +71,7 @@ namespace CP220___A1___MDORFMAN
 
         private void btnReload2_Click(object sender, EventArgs e)
         {
-
+            P2.load();
         }
     }
 
@@ -77,7 +83,7 @@ namespace CP220___A1___MDORFMAN
 
         // Fields
         private string _ship_type;
-        private int _shield_level = 100;
+        private int _shield_level;
         private int _health, _max_health;
         private string _condition;
         private int ordinance;
@@ -114,6 +120,7 @@ namespace CP220___A1___MDORFMAN
         public starship(string ShipType, int MaxHealth)
         {
             firing_damage = 1;
+            shield_level = 100;
         }
 
         // Methods
@@ -185,7 +192,7 @@ namespace CP220___A1___MDORFMAN
         public cruiser(string ShipType, int MaxHealth) 
             : base(ShipType, MaxHealth)
         {
-
+            this.max_health = MaxHealth;
         }
     }
 
@@ -198,7 +205,7 @@ namespace CP220___A1___MDORFMAN
         public destroyer(string ShipType, int MaxHealth) 
             : base(ShipType, MaxHealth)
         {
-
+            this.max_health = MaxHealth;
         }
     }   
 
