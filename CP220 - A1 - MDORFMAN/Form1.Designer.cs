@@ -56,6 +56,7 @@
             this.btnLaser1.TabIndex = 0;
             this.btnLaser1.Text = "Fire Laser";
             this.btnLaser1.UseVisualStyleBackColor = true;
+            this.btnLaser1.Click += new System.EventHandler(this.btnLaser1_Click);
             // 
             // btnTorp1
             // 
@@ -65,6 +66,7 @@
             this.btnTorp1.TabIndex = 1;
             this.btnTorp1.Text = "Fire Torpedo";
             this.btnTorp1.UseVisualStyleBackColor = true;
+            this.btnTorp1.Click += new System.EventHandler(this.btnTorp1_Click);
             // 
             // btnIon1
             // 
@@ -74,6 +76,7 @@
             this.btnIon1.TabIndex = 2;
             this.btnIon1.Text = "Fire Ion Bomb";
             this.btnIon1.UseVisualStyleBackColor = true;
+            this.btnIon1.Click += new System.EventHandler(this.btnIon1_Click);
             // 
             // p1HealthBar
             // 
@@ -114,6 +117,7 @@
             this.btnReload1.TabIndex = 3;
             this.btnReload1.Text = "Reload";
             this.btnReload1.UseVisualStyleBackColor = true;
+            this.btnReload1.Click += new System.EventHandler(this.btnReload1_Click);
             // 
             // groupBox1
             // 
@@ -138,6 +142,7 @@
             this.btnReload2.TabIndex = 3;
             this.btnReload2.Text = "Reload";
             this.btnReload2.UseVisualStyleBackColor = true;
+            this.btnReload2.Click += new System.EventHandler(this.btnReload2_Click);
             // 
             // p2HealthBar
             // 
@@ -163,6 +168,7 @@
             this.btnLaser2.TabIndex = 0;
             this.btnLaser2.Text = "Fire Laser";
             this.btnLaser2.UseVisualStyleBackColor = true;
+            this.btnLaser2.Click += new System.EventHandler(this.btnLaser2_Click);
             // 
             // btnTorp2
             // 
@@ -172,6 +178,7 @@
             this.btnTorp2.TabIndex = 1;
             this.btnTorp2.Text = "Fire Torpedo";
             this.btnTorp2.UseVisualStyleBackColor = true;
+            this.btnTorp2.Click += new System.EventHandler(this.btnTorp2_Click);
             // 
             // btnIon2
             // 
@@ -181,6 +188,7 @@
             this.btnIon2.TabIndex = 2;
             this.btnIon2.Text = "Fire Ion Bomb";
             this.btnIon2.UseVisualStyleBackColor = true;
+            this.btnIon2.Click += new System.EventHandler(this.btnIon2_Click);
             // 
             // label2
             // 

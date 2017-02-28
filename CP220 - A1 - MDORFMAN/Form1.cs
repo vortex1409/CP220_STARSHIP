@@ -17,9 +17,50 @@ namespace CP220___A1___MDORFMAN
         cruiser P1 = new cruiser("RN Kirov", 100);
         destroyer P2 = new destroyer("USS Sampson", 100);
 
+
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void btnLaser1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTorp1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnIon1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnReload1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLaser2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTorp2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnIon2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnReload2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
@@ -137,6 +178,8 @@ namespace CP220___A1___MDORFMAN
         {
 
         }
+
+        public override
     }
 
     public class destroyer : starship
