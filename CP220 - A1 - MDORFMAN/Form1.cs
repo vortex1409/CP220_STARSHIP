@@ -325,6 +325,16 @@ namespace CP220___A1___MDORFMAN
         int DamageOutput(int Base);
     }
 
+    public class laser : ordinance
+    {
+        // Laser does Base Damage + 5
+        public int DamageOutput(int Base)
+        {
+            int output;
+            return output = Base + 5;
+        }
+    }
+
     public class torpedo : ordinance
     {
         // Torpedo does Base Damage + 10
@@ -345,13 +355,5 @@ namespace CP220___A1___MDORFMAN
         }
     }
 
-    public class laser : ordinance
-    {
-        // Laser does Base Damage + 5
-        public int DamageOutput(int Base)
-        {
-            int output;
-            return output = Base + 5;
-        }
-    }
+    
 }
