@@ -33,11 +33,11 @@
             this.btnIon1 = new System.Windows.Forms.Button();
             this.p1HealthBar = new System.Windows.Forms.ProgressBar();
             this.label3 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbP1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.p1ShieldBar = new System.Windows.Forms.ProgressBar();
             this.btnReload1 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbP2 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.p2ShieldBar = new System.Windows.Forms.ProgressBar();
             this.btnReload2 = new System.Windows.Forms.Button();
@@ -49,8 +49,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.WarLog = new System.Windows.Forms.ListBox();
             this.btnCheckVar = new System.Windows.Forms.Button();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.lblType2 = new System.Windows.Forms.Label();
+            this.lblAmmo2 = new System.Windows.Forms.Label();
+            this.lblCondition2 = new System.Windows.Forms.Label();
+            this.lblName2 = new System.Windows.Forms.Label();
+            this.lblName1 = new System.Windows.Forms.Label();
+            this.lblCondition1 = new System.Windows.Forms.Label();
+            this.lblAmmo1 = new System.Windows.Forms.Label();
+            this.lblType1 = new System.Windows.Forms.Label();
+            this.gbP1.SuspendLayout();
+            this.gbP2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLaser1
@@ -85,7 +93,7 @@
             // 
             // p1HealthBar
             // 
-            this.p1HealthBar.Location = new System.Drawing.Point(122, 106);
+            this.p1HealthBar.Location = new System.Drawing.Point(135, 48);
             this.p1HealthBar.Name = "p1HealthBar";
             this.p1HealthBar.Size = new System.Drawing.Size(150, 23);
             this.p1HealthBar.TabIndex = 5;
@@ -93,33 +101,37 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(176, 82);
+            this.label3.Location = new System.Drawing.Point(194, 24);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Health";
             // 
-            // groupBox2
+            // gbP1
             // 
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.p1ShieldBar);
-            this.groupBox2.Controls.Add(this.btnReload1);
-            this.groupBox2.Controls.Add(this.p1HealthBar);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.btnLaser1);
-            this.groupBox2.Controls.Add(this.btnTorp1);
-            this.groupBox2.Controls.Add(this.btnIon1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(289, 138);
-            this.groupBox2.TabIndex = 7;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Player 1 : Cruiser ";
+            this.gbP1.Controls.Add(this.lblName1);
+            this.gbP1.Controls.Add(this.label4);
+            this.gbP1.Controls.Add(this.lblCondition1);
+            this.gbP1.Controls.Add(this.p1ShieldBar);
+            this.gbP1.Controls.Add(this.lblAmmo1);
+            this.gbP1.Controls.Add(this.btnReload1);
+            this.gbP1.Controls.Add(this.lblType1);
+            this.gbP1.Controls.Add(this.p1HealthBar);
+            this.gbP1.Controls.Add(this.label3);
+            this.gbP1.Controls.Add(this.btnLaser1);
+            this.gbP1.Controls.Add(this.btnTorp1);
+            this.gbP1.Controls.Add(this.btnIon1);
+            this.gbP1.Location = new System.Drawing.Point(12, 12);
+            this.gbP1.Name = "gbP1";
+            this.gbP1.Size = new System.Drawing.Size(457, 138);
+            this.gbP1.TabIndex = 7;
+            this.gbP1.TabStop = false;
+            this.gbP1.Text = "Player 1 : Cruiser ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(176, 24);
+            this.label4.Location = new System.Drawing.Point(341, 24);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 13);
             this.label4.TabIndex = 8;
@@ -127,7 +139,7 @@
             // 
             // p1ShieldBar
             // 
-            this.p1ShieldBar.Location = new System.Drawing.Point(122, 48);
+            this.p1ShieldBar.Location = new System.Drawing.Point(291, 48);
             this.p1ShieldBar.Name = "p1ShieldBar";
             this.p1ShieldBar.Size = new System.Drawing.Size(150, 23);
             this.p1ShieldBar.TabIndex = 7;
@@ -142,27 +154,31 @@
             this.btnReload1.UseVisualStyleBackColor = true;
             this.btnReload1.Click += new System.EventHandler(this.btnReload1_Click);
             // 
-            // groupBox1
+            // gbP2
             // 
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.p2ShieldBar);
-            this.groupBox1.Controls.Add(this.btnReload2);
-            this.groupBox1.Controls.Add(this.p2HealthBar);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.btnLaser2);
-            this.groupBox1.Controls.Add(this.btnTorp2);
-            this.groupBox1.Controls.Add(this.btnIon2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 156);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(289, 138);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Player 2 : Destroyer";
+            this.gbP2.Controls.Add(this.lblName2);
+            this.gbP2.Controls.Add(this.lblCondition2);
+            this.gbP2.Controls.Add(this.lblAmmo2);
+            this.gbP2.Controls.Add(this.lblType2);
+            this.gbP2.Controls.Add(this.label5);
+            this.gbP2.Controls.Add(this.btnReload2);
+            this.gbP2.Controls.Add(this.p2HealthBar);
+            this.gbP2.Controls.Add(this.label1);
+            this.gbP2.Controls.Add(this.btnLaser2);
+            this.gbP2.Controls.Add(this.btnTorp2);
+            this.gbP2.Controls.Add(this.btnIon2);
+            this.gbP2.Controls.Add(this.p2ShieldBar);
+            this.gbP2.Location = new System.Drawing.Point(12, 156);
+            this.gbP2.Name = "gbP2";
+            this.gbP2.Size = new System.Drawing.Size(457, 138);
+            this.gbP2.TabIndex = 8;
+            this.gbP2.TabStop = false;
+            this.gbP2.Text = "Player 2 : Destroyer";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(176, 24);
+            this.label5.Location = new System.Drawing.Point(350, 24);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 13);
             this.label5.TabIndex = 9;
@@ -170,7 +186,7 @@
             // 
             // p2ShieldBar
             // 
-            this.p2ShieldBar.Location = new System.Drawing.Point(122, 48);
+            this.p2ShieldBar.Location = new System.Drawing.Point(291, 48);
             this.p2ShieldBar.Name = "p2ShieldBar";
             this.p2ShieldBar.Size = new System.Drawing.Size(150, 23);
             this.p2ShieldBar.TabIndex = 8;
@@ -187,7 +203,7 @@
             // 
             // p2HealthBar
             // 
-            this.p2HealthBar.Location = new System.Drawing.Point(122, 106);
+            this.p2HealthBar.Location = new System.Drawing.Point(135, 48);
             this.p2HealthBar.Name = "p2HealthBar";
             this.p2HealthBar.Size = new System.Drawing.Size(150, 23);
             this.p2HealthBar.TabIndex = 5;
@@ -195,7 +211,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(176, 82);
+            this.label1.Location = new System.Drawing.Point(188, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 6;
@@ -234,7 +250,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(471, 12);
+            this.label2.Location = new System.Drawing.Point(552, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 9;
@@ -243,9 +259,9 @@
             // WarLog
             // 
             this.WarLog.FormattingEnabled = true;
-            this.WarLog.Location = new System.Drawing.Point(307, 28);
+            this.WarLog.Location = new System.Drawing.Point(475, 28);
             this.WarLog.Name = "WarLog";
-            this.WarLog.Size = new System.Drawing.Size(407, 264);
+            this.WarLog.Size = new System.Drawing.Size(239, 264);
             this.WarLog.TabIndex = 10;
             // 
             // btnCheckVar
@@ -254,9 +270,81 @@
             this.btnCheckVar.Name = "btnCheckVar";
             this.btnCheckVar.Size = new System.Drawing.Size(702, 23);
             this.btnCheckVar.TabIndex = 11;
-            this.btnCheckVar.Text = "Check Values";
+            this.btnCheckVar.Text = "Debug Values";
             this.btnCheckVar.UseVisualStyleBackColor = true;
             this.btnCheckVar.Click += new System.EventHandler(this.btnCheckVar_Click);
+            // 
+            // lblType2
+            // 
+            this.lblType2.AutoSize = true;
+            this.lblType2.Location = new System.Drawing.Point(132, 82);
+            this.lblType2.Name = "lblType2";
+            this.lblType2.Size = new System.Drawing.Size(53, 13);
+            this.lblType2.TabIndex = 10;
+            this.lblType2.Text = "< TYPE >";
+            // 
+            // lblAmmo2
+            // 
+            this.lblAmmo2.AutoSize = true;
+            this.lblAmmo2.Location = new System.Drawing.Point(288, 106);
+            this.lblAmmo2.Name = "lblAmmo2";
+            this.lblAmmo2.Size = new System.Drawing.Size(58, 13);
+            this.lblAmmo2.TabIndex = 11;
+            this.lblAmmo2.Text = "< AMMO >";
+            // 
+            // lblCondition2
+            // 
+            this.lblCondition2.AutoSize = true;
+            this.lblCondition2.Location = new System.Drawing.Point(132, 106);
+            this.lblCondition2.Name = "lblCondition2";
+            this.lblCondition2.Size = new System.Drawing.Size(85, 13);
+            this.lblCondition2.TabIndex = 12;
+            this.lblCondition2.Text = "< CONDITION >";
+            // 
+            // lblName2
+            // 
+            this.lblName2.AutoSize = true;
+            this.lblName2.Location = new System.Drawing.Point(288, 82);
+            this.lblName2.Name = "lblName2";
+            this.lblName2.Size = new System.Drawing.Size(59, 13);
+            this.lblName2.TabIndex = 13;
+            this.lblName2.Text = "<  NAME >";
+            // 
+            // lblName1
+            // 
+            this.lblName1.AutoSize = true;
+            this.lblName1.Location = new System.Drawing.Point(288, 82);
+            this.lblName1.Name = "lblName1";
+            this.lblName1.Size = new System.Drawing.Size(59, 13);
+            this.lblName1.TabIndex = 17;
+            this.lblName1.Text = "<  NAME >";
+            // 
+            // lblCondition1
+            // 
+            this.lblCondition1.AutoSize = true;
+            this.lblCondition1.Location = new System.Drawing.Point(132, 111);
+            this.lblCondition1.Name = "lblCondition1";
+            this.lblCondition1.Size = new System.Drawing.Size(85, 13);
+            this.lblCondition1.TabIndex = 16;
+            this.lblCondition1.Text = "< CONDITION >";
+            // 
+            // lblAmmo1
+            // 
+            this.lblAmmo1.AutoSize = true;
+            this.lblAmmo1.Location = new System.Drawing.Point(288, 111);
+            this.lblAmmo1.Name = "lblAmmo1";
+            this.lblAmmo1.Size = new System.Drawing.Size(58, 13);
+            this.lblAmmo1.TabIndex = 15;
+            this.lblAmmo1.Text = "< AMMO >";
+            // 
+            // lblType1
+            // 
+            this.lblType1.AutoSize = true;
+            this.lblType1.Location = new System.Drawing.Point(132, 82);
+            this.lblType1.Name = "lblType1";
+            this.lblType1.Size = new System.Drawing.Size(53, 13);
+            this.lblType1.TabIndex = 14;
+            this.lblType1.Text = "< TYPE >";
             // 
             // Form1
             // 
@@ -266,14 +354,14 @@
             this.Controls.Add(this.btnCheckVar);
             this.Controls.Add(this.WarLog);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.gbP2);
+            this.Controls.Add(this.gbP1);
             this.Name = "Form1";
             this.Text = "CP220 - A1 - MDORFMAN";
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbP1.ResumeLayout(false);
+            this.gbP1.PerformLayout();
+            this.gbP2.ResumeLayout(false);
+            this.gbP2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,9 +374,9 @@
         private System.Windows.Forms.Button btnIon1;
         private System.Windows.Forms.ProgressBar p1HealthBar;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbP1;
         private System.Windows.Forms.Button btnReload1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbP2;
         private System.Windows.Forms.Button btnReload2;
         private System.Windows.Forms.ProgressBar p2HealthBar;
         private System.Windows.Forms.Label label1;
@@ -302,6 +390,14 @@
         private System.Windows.Forms.ProgressBar p2ShieldBar;
         private System.Windows.Forms.Button btnCheckVar;
         public System.Windows.Forms.ListBox WarLog;
+        private System.Windows.Forms.Label lblName2;
+        private System.Windows.Forms.Label lblCondition2;
+        private System.Windows.Forms.Label lblAmmo2;
+        private System.Windows.Forms.Label lblType2;
+        private System.Windows.Forms.Label lblName1;
+        private System.Windows.Forms.Label lblCondition1;
+        private System.Windows.Forms.Label lblAmmo1;
+        private System.Windows.Forms.Label lblType1;
     }
 }
 

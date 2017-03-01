@@ -33,7 +33,6 @@ namespace CP220___A1___MDORFMAN
         {
             InitializeComponent();
             UpdateStats();
-            CheckVars();
         }
         public void CheckVars()
         {
@@ -50,9 +49,43 @@ namespace CP220___A1___MDORFMAN
             Console.WriteLine("P2 Health = " + P2.health);
             Console.WriteLine("P2 Max Health = " + P2.max_health);
             Console.WriteLine("P2 Shield = " + P2.shield_level);
-            
             Console.WriteLine("P2 Condition = " + P2.condition);
             Console.WriteLine("P2 Ammo = " + Convert.ToString(P2.ammo_count()));
+
+            MessageBox.Show(
+                "= NEW ENTITY =" +
+                Environment.NewLine +
+                "P1 Name: " + P1.name + 
+                Environment.NewLine +
+                "P1 Type = " + P1.ship_type +
+                 Environment.NewLine +
+                "P1 Health = " + P1.health +
+                 Environment.NewLine +
+                "P1 Max Health = " + P1.max_health +
+                 Environment.NewLine +
+                "P1 Shield = " + P1.shield_level +
+                 Environment.NewLine +
+                "P1 Condition = " + P1.condition +
+                 Environment.NewLine +
+                "P1 Ammo = " + Convert.ToString(P1.ammo_count()) +
+                 Environment.NewLine +
+                "P1 Name: " + P2.name +
+                 Environment.NewLine +
+                 "= NEW ENTITY =" +
+                Environment.NewLine +
+                "P2 Type = " + P2.ship_type +
+                 Environment.NewLine +
+                "P2 Health = " + P2.health +
+                 Environment.NewLine +
+                "P2 Max Health = " + P2.max_health +
+                 Environment.NewLine +
+                "P2 Shield = " + P2.shield_level +
+                 Environment.NewLine +
+                "P2 Condition = " + P2.condition +
+                 Environment.NewLine +
+                "P2 Ammo = " + Convert.ToString(P2.ammo_count()), "Debug Values"
+                );
+
         }
         public void WarLogUpdater(string attacker, string target, string weapon, int damage)
         {   
@@ -112,6 +145,22 @@ namespace CP220___A1___MDORFMAN
                 p2ShieldBar.Value = P2.shield_level;
             }
 
+            gbP1.Text = P1.name + " : " + P1.ship_type;
+            gbP2.Text = P2.name + " : " + P2.ship_type;
+
+            lblAmmo1.Text = "Ammo: " + Convert.ToString(P1.ammo_count());
+            lblAmmo2.Text = "Ammo: " + Convert.ToString(P2.ammo_count());
+
+            lblCondition1.Text = "Condition: " + P1.condition;
+            lblCondition2.Text = "Condition: " + P2.condition;
+
+            lblName1.Text = "Name: " + P1.name;
+            lblName2.Text = "Name: " + P2.name;
+
+            lblType1.Text = "Type: " + P2.ship_type;
+            lblType2.Text = "Type: " + P2.ship_type;
+
+
         }
         private void btnLaser1_Click(object sender, EventArgs e)
         {
@@ -133,7 +182,8 @@ namespace CP220___A1___MDORFMAN
         }
         private void btnReload1_Click(object sender, EventArgs e)
         {
-            P1.load();
+            P1.load(P1);
+            UpdateStats();
         }
         private void btnLaser2_Click(object sender, EventArgs e)
         {
@@ -155,7 +205,8 @@ namespace CP220___A1___MDORFMAN
         }
         private void btnReload2_Click(object sender, EventArgs e)
         {
-            P2.load();
+            P2.load(P2);
+            UpdateStats();
         }
         private void btnCheckVar_Click(object sender, EventArgs e)
         {
@@ -278,9 +329,9 @@ namespace CP220___A1___MDORFMAN
             Console.WriteLine("Condition: " + target.condition);
 
         }
-        public void load()
+        public void load(starship MyShip)
         {
-            ordinance = ordinance + 2;
+            MyShip.ordinance = MyShip.ordinance + 2;
         }
         public int ammo_count()
         {
