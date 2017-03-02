@@ -14,19 +14,24 @@ using System.Diagnostics;
     Description: Space War
     Name: Michael Dorfman
     Class: CP220 - OOP 2
-    Date: 02/28/2017 - 2:48 PM (EST)
+    Date: 03/01/2017 - 10:17 PM (EST)
 */
 
 namespace CP220___A1___MDORFMAN
 {
     public partial class Form1 : Form
     {
+
+        // Ship Object Creation
         cruiser P1 = new cruiser("RN Kirov", 100);
         destroyer P2 = new destroyer("USS Sampson", 50);
+
+        // Weapon Creation
         torpedo GenericTorpedo = new torpedo();
         laser GenericLaser = new laser();
         ion_bomb GenericIonBomb = new ion_bomb();
 
+        // Defining Weapon Type Strings
         private string[] weapon_type = new string[] { "Laser", "Torpedo", "Ion Bomb" };
 
         public Form1()
@@ -34,6 +39,8 @@ namespace CP220___A1___MDORFMAN
             InitializeComponent();
             UpdateStats();
         }
+
+        // Debugging Methods
         public void CheckVars()
         {
             Console.WriteLine("P1 Name: " + P1.name);
@@ -87,6 +94,8 @@ namespace CP220___A1___MDORFMAN
                 );
 
         }
+
+        // Utility Methods
         public void WarLogUpdater(string attacker, string target, string weapon, int damage)
         {   
             if(P1.ammo_count() != 0 || P2.ammo_count() != 0)
@@ -162,6 +171,8 @@ namespace CP220___A1___MDORFMAN
 
 
         }
+
+        // Button Events
         private void btnLaser1_Click(object sender, EventArgs e)
         {
             P1.fire(P2, GenericLaser.DamageOutput(P1.firing_damage));
@@ -212,8 +223,13 @@ namespace CP220___A1___MDORFMAN
         {
             CheckVars();
         }
+        private void btnClearLog_Click(object sender, EventArgs e)
+        {
+            ClearLog();
+        }
     }
 
+    // Base Class
     public class starship
     {
         // Variables & Arrays
@@ -260,7 +276,7 @@ namespace CP220___A1___MDORFMAN
             set { _name = value; }
         }
 
-        // Constuctor
+        // Constuctor - Sets Values
         public starship(string ShipName, int MaxHealth)
         {
             firing_damage = 1;
@@ -269,6 +285,8 @@ namespace CP220___A1___MDORFMAN
         }
 
         // Methods
+
+        // Reduces Ammo and Calls takehit()
         public bool fire(starship target, int dmg)
         {
             if(condition != condition_type[0])
@@ -292,8 +310,12 @@ namespace CP220___A1___MDORFMAN
             }
             
         }
+
+        // Events for when Ship Takes Damage
         public void takehit(starship target, int dmg)
         {
+
+            // Reduces Shield Level of Starship
             if(target.shield_level > 0)
             {
                 target.shield_level = target.shield_level - dmg;
@@ -309,6 +331,7 @@ namespace CP220___A1___MDORFMAN
                 target.health = target.health - dmg;
             }
 
+            // Reduced Health of Starship
             if(target.health <= 0)
             {
                 target.condition = condition_type[0];
@@ -321,30 +344,28 @@ namespace CP220___A1___MDORFMAN
             {
                 target.condition = condition_type[2];
             }
-
-            Console.WriteLine("Ship Was Attacked");
-            Console.WriteLine("Ship Type: " + target.ship_type);
-            Console.WriteLine("Shields: " + target.shield_level + "/100");
-            Console.WriteLine("Health: " + target.health + "/" + target.max_health);
-            Console.WriteLine("Condition: " + target.condition);
-
         }
+
+        // Loads Ammo
         public void load(starship MyShip)
         {
             MyShip.ordinance = MyShip.ordinance + 2;
         }
+
+        // Returns the Ammo Count
         public int ammo_count()
         {
             return ordinance;
         }
     }
 
+    // Sub Class
     public class cruiser : starship
     {
         // Fields
         public int firing_damage = 5;
 
-        // Constructor
+        // Constructor - Sets Values
         public cruiser(string ShipName, int MaxHealth) 
             : base(ShipName, MaxHealth)
         {
@@ -355,12 +376,13 @@ namespace CP220___A1___MDORFMAN
         }
     }
 
+    // Sub Class
     public class destroyer : starship
     {
         // Fields
         public int firing_damage = 10;
 
-        // Constructor
+        // Constructor - Sets Values
         public destroyer(string ShipName, int MaxHealth) 
             : base(ShipName, MaxHealth)
         {
@@ -371,11 +393,13 @@ namespace CP220___A1___MDORFMAN
         }
     }   
 
+    // Inferface Class
     public interface ordinance
     {
         int DamageOutput(int Base);
     }
 
+    // Laser Weapon Class
     public class laser : ordinance
     {
         // Laser does Base Damage + 5
@@ -386,6 +410,7 @@ namespace CP220___A1___MDORFMAN
         }
     }
 
+    // Torpedo Weapon Class
     public class torpedo : ordinance
     {
         // Torpedo does Base Damage + 10
@@ -396,6 +421,7 @@ namespace CP220___A1___MDORFMAN
         }
     }
 
+    // Ion Weapon Class
     public class ion_bomb: ordinance
     {
         // Ion Bomb does Base Damage + 50

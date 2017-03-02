@@ -34,29 +34,30 @@
             this.p1HealthBar = new System.Windows.Forms.ProgressBar();
             this.label3 = new System.Windows.Forms.Label();
             this.gbP1 = new System.Windows.Forms.GroupBox();
+            this.lblName1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.lblCondition1 = new System.Windows.Forms.Label();
             this.p1ShieldBar = new System.Windows.Forms.ProgressBar();
+            this.lblAmmo1 = new System.Windows.Forms.Label();
             this.btnReload1 = new System.Windows.Forms.Button();
+            this.lblType1 = new System.Windows.Forms.Label();
             this.gbP2 = new System.Windows.Forms.GroupBox();
+            this.lblName2 = new System.Windows.Forms.Label();
+            this.lblCondition2 = new System.Windows.Forms.Label();
+            this.lblAmmo2 = new System.Windows.Forms.Label();
+            this.lblType2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.p2ShieldBar = new System.Windows.Forms.ProgressBar();
             this.btnReload2 = new System.Windows.Forms.Button();
             this.p2HealthBar = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.btnLaser2 = new System.Windows.Forms.Button();
             this.btnTorp2 = new System.Windows.Forms.Button();
             this.btnIon2 = new System.Windows.Forms.Button();
+            this.p2ShieldBar = new System.Windows.Forms.ProgressBar();
             this.label2 = new System.Windows.Forms.Label();
             this.WarLog = new System.Windows.Forms.ListBox();
             this.btnCheckVar = new System.Windows.Forms.Button();
-            this.lblType2 = new System.Windows.Forms.Label();
-            this.lblAmmo2 = new System.Windows.Forms.Label();
-            this.lblCondition2 = new System.Windows.Forms.Label();
-            this.lblName2 = new System.Windows.Forms.Label();
-            this.lblName1 = new System.Windows.Forms.Label();
-            this.lblCondition1 = new System.Windows.Forms.Label();
-            this.lblAmmo1 = new System.Windows.Forms.Label();
-            this.lblType1 = new System.Windows.Forms.Label();
+            this.btnClearLog = new System.Windows.Forms.Button();
             this.gbP1.SuspendLayout();
             this.gbP2.SuspendLayout();
             this.SuspendLayout();
@@ -128,6 +129,15 @@
             this.gbP1.TabStop = false;
             this.gbP1.Text = "Player 1 : Cruiser ";
             // 
+            // lblName1
+            // 
+            this.lblName1.AutoSize = true;
+            this.lblName1.Location = new System.Drawing.Point(288, 82);
+            this.lblName1.Name = "lblName1";
+            this.lblName1.Size = new System.Drawing.Size(59, 13);
+            this.lblName1.TabIndex = 17;
+            this.lblName1.Text = "<  NAME >";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -137,12 +147,30 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Shields";
             // 
+            // lblCondition1
+            // 
+            this.lblCondition1.AutoSize = true;
+            this.lblCondition1.Location = new System.Drawing.Point(132, 111);
+            this.lblCondition1.Name = "lblCondition1";
+            this.lblCondition1.Size = new System.Drawing.Size(85, 13);
+            this.lblCondition1.TabIndex = 16;
+            this.lblCondition1.Text = "< CONDITION >";
+            // 
             // p1ShieldBar
             // 
             this.p1ShieldBar.Location = new System.Drawing.Point(291, 48);
             this.p1ShieldBar.Name = "p1ShieldBar";
             this.p1ShieldBar.Size = new System.Drawing.Size(150, 23);
             this.p1ShieldBar.TabIndex = 7;
+            // 
+            // lblAmmo1
+            // 
+            this.lblAmmo1.AutoSize = true;
+            this.lblAmmo1.Location = new System.Drawing.Point(288, 111);
+            this.lblAmmo1.Name = "lblAmmo1";
+            this.lblAmmo1.Size = new System.Drawing.Size(58, 13);
+            this.lblAmmo1.TabIndex = 15;
+            this.lblAmmo1.Text = "< AMMO >";
             // 
             // btnReload1
             // 
@@ -153,6 +181,15 @@
             this.btnReload1.Text = "Reload";
             this.btnReload1.UseVisualStyleBackColor = true;
             this.btnReload1.Click += new System.EventHandler(this.btnReload1_Click);
+            // 
+            // lblType1
+            // 
+            this.lblType1.AutoSize = true;
+            this.lblType1.Location = new System.Drawing.Point(132, 82);
+            this.lblType1.Name = "lblType1";
+            this.lblType1.Size = new System.Drawing.Size(53, 13);
+            this.lblType1.TabIndex = 14;
+            this.lblType1.Text = "< TYPE >";
             // 
             // gbP2
             // 
@@ -175,6 +212,42 @@
             this.gbP2.TabStop = false;
             this.gbP2.Text = "Player 2 : Destroyer";
             // 
+            // lblName2
+            // 
+            this.lblName2.AutoSize = true;
+            this.lblName2.Location = new System.Drawing.Point(288, 82);
+            this.lblName2.Name = "lblName2";
+            this.lblName2.Size = new System.Drawing.Size(59, 13);
+            this.lblName2.TabIndex = 13;
+            this.lblName2.Text = "<  NAME >";
+            // 
+            // lblCondition2
+            // 
+            this.lblCondition2.AutoSize = true;
+            this.lblCondition2.Location = new System.Drawing.Point(132, 106);
+            this.lblCondition2.Name = "lblCondition2";
+            this.lblCondition2.Size = new System.Drawing.Size(85, 13);
+            this.lblCondition2.TabIndex = 12;
+            this.lblCondition2.Text = "< CONDITION >";
+            // 
+            // lblAmmo2
+            // 
+            this.lblAmmo2.AutoSize = true;
+            this.lblAmmo2.Location = new System.Drawing.Point(288, 106);
+            this.lblAmmo2.Name = "lblAmmo2";
+            this.lblAmmo2.Size = new System.Drawing.Size(58, 13);
+            this.lblAmmo2.TabIndex = 11;
+            this.lblAmmo2.Text = "< AMMO >";
+            // 
+            // lblType2
+            // 
+            this.lblType2.AutoSize = true;
+            this.lblType2.Location = new System.Drawing.Point(132, 82);
+            this.lblType2.Name = "lblType2";
+            this.lblType2.Size = new System.Drawing.Size(53, 13);
+            this.lblType2.TabIndex = 10;
+            this.lblType2.Text = "< TYPE >";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -183,13 +256,6 @@
             this.label5.Size = new System.Drawing.Size(41, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Shields";
-            // 
-            // p2ShieldBar
-            // 
-            this.p2ShieldBar.Location = new System.Drawing.Point(291, 48);
-            this.p2ShieldBar.Name = "p2ShieldBar";
-            this.p2ShieldBar.Size = new System.Drawing.Size(150, 23);
-            this.p2ShieldBar.TabIndex = 8;
             // 
             // btnReload2
             // 
@@ -247,6 +313,13 @@
             this.btnIon2.UseVisualStyleBackColor = true;
             this.btnIon2.Click += new System.EventHandler(this.btnIon2_Click);
             // 
+            // p2ShieldBar
+            // 
+            this.p2ShieldBar.Location = new System.Drawing.Point(291, 48);
+            this.p2ShieldBar.Name = "p2ShieldBar";
+            this.p2ShieldBar.Size = new System.Drawing.Size(150, 23);
+            this.p2ShieldBar.TabIndex = 8;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -268,89 +341,28 @@
             // 
             this.btnCheckVar.Location = new System.Drawing.Point(12, 300);
             this.btnCheckVar.Name = "btnCheckVar";
-            this.btnCheckVar.Size = new System.Drawing.Size(702, 23);
+            this.btnCheckVar.Size = new System.Drawing.Size(457, 23);
             this.btnCheckVar.TabIndex = 11;
             this.btnCheckVar.Text = "Debug Values";
             this.btnCheckVar.UseVisualStyleBackColor = true;
             this.btnCheckVar.Click += new System.EventHandler(this.btnCheckVar_Click);
             // 
-            // lblType2
+            // btnClearLog
             // 
-            this.lblType2.AutoSize = true;
-            this.lblType2.Location = new System.Drawing.Point(132, 82);
-            this.lblType2.Name = "lblType2";
-            this.lblType2.Size = new System.Drawing.Size(53, 13);
-            this.lblType2.TabIndex = 10;
-            this.lblType2.Text = "< TYPE >";
-            // 
-            // lblAmmo2
-            // 
-            this.lblAmmo2.AutoSize = true;
-            this.lblAmmo2.Location = new System.Drawing.Point(288, 106);
-            this.lblAmmo2.Name = "lblAmmo2";
-            this.lblAmmo2.Size = new System.Drawing.Size(58, 13);
-            this.lblAmmo2.TabIndex = 11;
-            this.lblAmmo2.Text = "< AMMO >";
-            // 
-            // lblCondition2
-            // 
-            this.lblCondition2.AutoSize = true;
-            this.lblCondition2.Location = new System.Drawing.Point(132, 106);
-            this.lblCondition2.Name = "lblCondition2";
-            this.lblCondition2.Size = new System.Drawing.Size(85, 13);
-            this.lblCondition2.TabIndex = 12;
-            this.lblCondition2.Text = "< CONDITION >";
-            // 
-            // lblName2
-            // 
-            this.lblName2.AutoSize = true;
-            this.lblName2.Location = new System.Drawing.Point(288, 82);
-            this.lblName2.Name = "lblName2";
-            this.lblName2.Size = new System.Drawing.Size(59, 13);
-            this.lblName2.TabIndex = 13;
-            this.lblName2.Text = "<  NAME >";
-            // 
-            // lblName1
-            // 
-            this.lblName1.AutoSize = true;
-            this.lblName1.Location = new System.Drawing.Point(288, 82);
-            this.lblName1.Name = "lblName1";
-            this.lblName1.Size = new System.Drawing.Size(59, 13);
-            this.lblName1.TabIndex = 17;
-            this.lblName1.Text = "<  NAME >";
-            // 
-            // lblCondition1
-            // 
-            this.lblCondition1.AutoSize = true;
-            this.lblCondition1.Location = new System.Drawing.Point(132, 111);
-            this.lblCondition1.Name = "lblCondition1";
-            this.lblCondition1.Size = new System.Drawing.Size(85, 13);
-            this.lblCondition1.TabIndex = 16;
-            this.lblCondition1.Text = "< CONDITION >";
-            // 
-            // lblAmmo1
-            // 
-            this.lblAmmo1.AutoSize = true;
-            this.lblAmmo1.Location = new System.Drawing.Point(288, 111);
-            this.lblAmmo1.Name = "lblAmmo1";
-            this.lblAmmo1.Size = new System.Drawing.Size(58, 13);
-            this.lblAmmo1.TabIndex = 15;
-            this.lblAmmo1.Text = "< AMMO >";
-            // 
-            // lblType1
-            // 
-            this.lblType1.AutoSize = true;
-            this.lblType1.Location = new System.Drawing.Point(132, 82);
-            this.lblType1.Name = "lblType1";
-            this.lblType1.Size = new System.Drawing.Size(53, 13);
-            this.lblType1.TabIndex = 14;
-            this.lblType1.Text = "< TYPE >";
+            this.btnClearLog.Location = new System.Drawing.Point(475, 300);
+            this.btnClearLog.Name = "btnClearLog";
+            this.btnClearLog.Size = new System.Drawing.Size(239, 23);
+            this.btnClearLog.TabIndex = 12;
+            this.btnClearLog.Text = "Clear Log";
+            this.btnClearLog.UseVisualStyleBackColor = true;
+            this.btnClearLog.Click += new System.EventHandler(this.btnClearLog_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(726, 330);
+            this.Controls.Add(this.btnClearLog);
             this.Controls.Add(this.btnCheckVar);
             this.Controls.Add(this.WarLog);
             this.Controls.Add(this.label2);
@@ -398,6 +410,7 @@
         private System.Windows.Forms.Label lblCondition1;
         private System.Windows.Forms.Label lblAmmo1;
         private System.Windows.Forms.Label lblType1;
+        private System.Windows.Forms.Button btnClearLog;
     }
 }
 
