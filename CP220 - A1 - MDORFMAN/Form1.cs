@@ -98,6 +98,8 @@ namespace CP220___A1___MDORFMAN
         // Utility Methods
         public void WarLogUpdater(string attacker, string target, string weapon, int damage)
         {   
+
+            // Updates the Warlog if an attack is carried out
             if(P1.ammo_count() != 0 || P2.ammo_count() != 0)
             {
                 WarLog.Items.Add("=== | NEW EVENT | ===");
@@ -114,10 +116,13 @@ namespace CP220___A1___MDORFMAN
         }
         public void ClearLog()
         {
+            // Clears the warlog
             WarLog.Items.Clear();
         }
         private void UpdateStats()
         {
+
+            // Forces an update of form elements when method is called
             if(P1.health <= 0)
             {
                 p1HealthBar.Value = 0;
@@ -431,6 +436,4 @@ namespace CP220___A1___MDORFMAN
             return output = Base + 50;
         }
     }
-
-    
 }
